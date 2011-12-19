@@ -19,7 +19,7 @@ publish_html :
 	$(RSYNC) html $(host_dir)
 
 publish_tarball :
-	darcs dist
+	git archive --format tar master | gzip > $(tarball_name)
 	$(RSYNC) $(tarball_name) $(host_dir)
 
 clean :
